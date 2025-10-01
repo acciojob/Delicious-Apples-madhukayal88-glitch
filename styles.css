@@ -1,0 +1,16 @@
+.holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px; /* Optional: adds consistent spacing between items */
+}
+
+.item {
+  flex: 1 1 200px; /* Grow, shrink, and minimum width */
+  background-color: #ddd;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+}
