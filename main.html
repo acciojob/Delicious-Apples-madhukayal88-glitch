@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Apple Varieties Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Varieties</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="product__photo">
-    <div class="photo-container">
-      <div class="photo-main">
-        <img src="red-apple-main.jpg" alt="Red Apple Main View">
-      </div>
-      <div class="photo-album">
-        <ul>
-          <li><img src="red-apple-side.jpg" alt="Side View"></li>
-          <li><img src="red-apple-top.jpg" alt="Top View"></li>
-          <li><img src="red-apple-cut.jpg" alt="Cut View"></li>
-        </ul>
-      </div>
+    <div class="container">
+        <header>
+            <h1>Apple Varieties</h1>
+        </header>
+        
+        <main>
+            <section class="product">
+                <div class="photo-container">
+                    <div class="photo-main">
+                        <img src="images/red-apple.jpg" alt="Red Apple">
+                    </div>
+                    <div class="photo-album">
+                        <ul>
+                            <li><img src="images/red-apple-1.jpg" alt="Red Apple View 1"></li>
+                            <li><img src="images/red-apple-2.jpg" alt="Red Apple View 2"></li>
+                            <li><img src="images/red-apple-3.jpg" alt="Red Apple View 3"></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="details">
+                    <h2>Red Apple</h2>
+                    <p class="price">$7.93</p>
+                    <div class="variant">
+                        <h3>Available Varieties:</h3>
+                        <ul>
+                            <li>Green Apple</li>
+                            <li>Yellow Apple</li>
+                            <li>Orange Apple</li>
+                            <li>Red Apple</li>
+                        </ul>
+                    </div>
+                    <div class="description">
+                        <h3>BENEFITS</h3>
+                        <ul>
+                            <li>Rich in antioxidants</li>
+                            <li>Good source of dietary fiber</li>
+                            <li>Supports heart health</li>
+                            <li>May aid in weight loss</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <button class="add-to-cart">ADD TO CART</button>
+        </footer>
     </div>
-  </div>
-
-  <div class="price">
-    <h2>Price: $7.93</h2>
-  </div>
-
-  <div class="variant">
-    <h3>Varieties</h3>
-    <ul>
-      <li>Green: <a href="green-apple.jpg">View</a></li>
-      <li>Yellow: <a href="yellow-apple.jpg">View</a></li>
-      <li>Orange: <a href="orange-apple.jpg">View</a></li>
-      <li>Red: <a href="red-apple.jpg">View</a></li>
-    </ul>
-  </div>
-
-  <div class="description">
-    <h3>BENEFITS</h3>
-    <p>Apples are rich in fiber, antioxidants, and vitamin C. They help improve heart health, aid digestion, and boost immunity.</p>
-  </div>
-
-  <div class="add-to-cart">
-    <button>ADD TO CART</button>
-  </div>
 </body>
 </html>
