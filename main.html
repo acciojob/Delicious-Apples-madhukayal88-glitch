@@ -1,167 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Apple Varieties Portfolio</title>
-    <style>
-        /* General layout using Flexbox */
-        body {
-            background-color: #2ecc71; /* Green background from screenshot */
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Varieties Portfolio - Fresh Grocery Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        /* Main Layout using flexbox and white container */
-        .main-layout {
-            background: white;
-            display: flex;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            max-width: 800px;
-            width: 90%;
-        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-        /* Product Photo Container */
-        .product__photo {
-            flex: 1;
-        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #d63031;
+        }
 
-        .photo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
 
-        .photo-main img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 10px;
-        }
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
 
-        /* Photo Album list */
-        .photo-album ul {
-            display: flex;
-            list-style: none;
-            padding: 20px 0 0 0;
-            gap: 10px;
-        }
+        .product-section {
+            flex: 1;
+            min-width: 400px;
+        }
 
-        .photo-album img {
-            width: 60px;
-            height: 60px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            object-fit: cover;
-        }
+        .product__photo {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
 
-        /* Product Details Section */
-        .product__info {
-            flex: 1;
-            padding-left: 40px;
-        }
+        .photo-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
 
-        h1 { margin: 0; font-size: 24px; color: #333; }
-        .code { color: #aaa; font-size: 12px; margin-bottom: 20px; }
+        .photo-main {
+            flex: 2;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
 
-        /* Price highlighting */
-        .price {
-            color: #ff4757;
-            font-size: 36px;
-            font-weight: bold;
-            margin: 15px 0;
-        }
+        .photo-main img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
 
-        /* Varieties section */
-        .variant p { font-size: 12px; color: #888; margin-bottom: 10px; }
-        .variant img {
-            width: 30px;
-            margin-right: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+        .photo-main img:hover {
+            transform: scale(1.05);
+        }
 
-        /* Benefits section */
-        .description h3 {
-            font-size: 14px;
-            color: #888;
-            margin-top: 25px;
-            letter-spacing: 1px;
-        }
+        .photo-album {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-        .description ul {
-            padding-left: 20px;
-            font-size: 13px;
-            color: #444;
-            line-height: 1.8;
-        }
+        .photo-album ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-        /* Add to Cart Button */
-        .add-to-cart-btn {
-            background-color: #ff4757;
-            color: white;
-            border: none;
-            padding: 15px;
-            width: 100%;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-            text-transform: uppercase;
-        }
-    </style>
+        .photo-album li img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .photo-album li img:hover,
+        .photo-album li img.active {
+            border-color: #d63031;
+            transform: scale(1.05);
+        }
+
+        .price {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #d63031;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .variant {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .variant button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 4px solid #f1f2f6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .variant button:hover,
+        .variant button.active {
+            transform: scale(1.1);
+            border-color: #d63031;
+            box-shadow: 0 10px 25px rgba(214, 48, 49, 0.4);
+        }
+
+        .variant button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .description {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .description h3 {
+            color: #d63031;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .description li {
+            padding: 12px 0;
+            font-size: 1.1rem;
+            color: #2d3436;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .description li::before {
+            content: "🍏";
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .add-to-cart {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .add-to-cart button {
+            background: linear-gradient(45deg, #d63031, #e17055);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(214, 48, 49, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .add-to-cart button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(214, 48, 49, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .photo-container {
+                flex-direction: column;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="header">
+        <h1>🍎 Premium Apple Varieties</h1>
+        <p>Fresh from the orchard - Nature's perfect fruit</p>
+    </div>
 
-    <div class="main-layout">
-        <div class="product__photo">
-            <div class="photo-container">
-                <div class="photo-main">
-                    <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400" alt="Green Apple">
-                </div>
-                <div class="photo-album">
-                    <ul>
-                        <li><img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6bcd6?w=100" alt="view 1"></li>
-                        <li><img src="https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?w=100" alt="view 2"></li>
-                        <li><img src="https://images.unsplash.com/photo-1610397648930-477b8c7f0943?w=100" alt="view 3"></li>
-                        <li><img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=100" alt="view 4"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="main-container">
+        <div class="product-section">
+            <!-- Product Photo Section -->
+            <div class="product__photo">
+                <div class="photo-container">
+                    <div class="photo-main">
+                        <img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302285/codepen/delicious-apples/red-apple.png" alt="Red Apple Main" id="main-apple">
+                    </div>
+                    <div class="photo-album">
+                        <ul>
+                            <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302285/codepen/delicious-apples/red-apple.png" alt="Red Apple 1" data-src="https://res.cloudinary.com/john-mantas/image/upload/v1537302285/codepen/delicious-apples/red-apple.png"></li>
+                            <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302064/codepen/delicious-apples/green-apple2.png" alt="Green Apple 1" data-src="https://res.cloudinary.com/john-mantas/image/upload/v1537302064/codepen/delicious-apples/green-apple2.png"></li>
+                            <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302752/codepen/delicious-apples/yellow-apple.png" alt="Yellow Apple 1" data-src="https://res.cloudinary.com/john-mantas/image/upload/v1537302752/codepen/delicious-apples/yellow-apple.png"></li>
+                            <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302427/codepen/delicious-apples/orange-apple.png" alt="Orange Apple 1" data-src="https://res.cloudinary.com/john-mantas/image/upload/v1537302427/codepen/delicious-apples/orange-apple.png"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-        <div class="product__info">
-            <h1>Delicious Apples</h1>
-            <p class="code">CODE 45939</p>
+            <!-- Price Section -->
+            <div class="price">$7.93 / kg</div>
 
-            <div class="price">R$ 7.93</div>
+            <!-- Apple Varieties Section -->
+            <div class="variant">
+                <button class="variant-btn active" data-color="red">
+                    <img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302285/codepen/delicious-apples/red-apple.png" alt="Red Apple">
+                </button>
+                <button class="variant-btn" data-color="green">
+                    <img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302064/codepen/delicious-apples/green-apple2.png" alt="Green Apple">
+                </button>
+                <button class="variant-btn" data-color="yellow">
+                    <img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302752/codepen/delicious-apples/yellow-apple.png" alt="Yellow Apple">
+                </button>
+                <button class="variant-btn" data-color="orange">
+                    <img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302427/codepen/delicious-apples/orange-apple.png" alt="Orange Apple">
+                </button>
+            </div>
+        </div>
 
-            <div class="variant">
-                <p>SELECT A COLOR</p>
-                <img src="https://placehold.co/30x30/92b512/92b512" alt="Green">
-                <img src="https://placehold.co/30x30/f1c40f/f1c40f" alt="Yellow">
-                <img src="https://placehold.co/30x30/e67e22/e67e22" alt="Orange">
-                <img src="https://placehold.co/30x30/c0392b/c0392b" alt="Red">
-            </div>
+        <!-- Benefits Section -->
+        <div class="description">
+            <h3>BENEFITS</h3>
+            <ul>
+                <li>Rich in dietary fiber, vitamins, and antioxidants</li>
+                <li>Supports heart health and digestion</li>
+                <li>Low calorie snack that keeps you feeling full</li>
+                <li>Boosts immune system with Vitamin C</li>
+                <li>Natural energy source without added sugars</li>
+                <li>Contains pectin that helps regulate blood sugar</li>
+            </ul>
+        </div>
+    </div>
 
-            <div class="description">
-                <h3>BENEFITS</h3>
-                <ul>
-                    <li>Apples are nutritious</li>
-                    <li>Apples may be good for weight loss</li>
-                    <li>Apples may be good for bone health</li>
-                    <li>They're linked to a lower risk of diabetes</li>
-                </ul>
-            </div>
+    <!-- Add to Cart Section -->
+    <div class="add-to-cart">
+        <button>ADD TO CART</button>
+    </div>
 
-            <button class="add-to-cart-btn">ADD TO CART</button>
-        </div>
-    </div>
+    <script>
+        // Photo album functionality
+        const albumImages = document.querySelectorAll('.photo-album li img');
+        const mainImage = document.getElementById('main-apple');
 
+        albumImages.forEach(img => {
+            img.addEventListener('click', () => {
+                mainImage.src = img.dataset.src;
+                albumImages.forEach(i => i.classList.remove('active'));
+                img.classList.add('active');
+            });
+        });
+
+        // Variant selection
+        const variantBtns = document.querySelectorAll('.variant-btn');
+        variantBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                variantBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const color = btn.dataset.color;
+                const colorImages = {
+                    red: 'https://res.cloudinary.com/john-mantas/image/upload/v1537302285/codepen/delicious-apples/red-apple.png',
+                    green: 'https://res.cloudinary.com/john-mantas/image/upload/v1537302064/codepen/delicious-apples/green-apple2.png',
+                    yellow: 'https://res.cloudinary.com/john-mantas/image/upload/v1537302752/codepen/delicious-apples/yellow-apple.png',
+                    orange: 'https://res.cloudinary.com/john-mantas/image/upload/v1537302427/codepen/delicious-apples/orange-apple.png'
+                };
+                mainImage.src = colorImages[color];
+            });
+        });
+    </script>
 </body>
 </html>
