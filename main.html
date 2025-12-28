@@ -2,91 +2,164 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Apple Portfolio and Design Showcase</title>
+    <title>Apple Varieties Portfolio</title>
     <style>
-        /* Portfolio Styles */
-        body { font-family: sans-serif; margin: 0; padding: 20px; background-color: #2ecc71; }
-        .main-layout { display: flex; justify-content: center; align-items: center; min-height: 80vh; }
-        .product-card { background: white; display: flex; padding: 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-width: 800px; }
-        
-        .product__photo { flex: 1; position: relative; }
-        .photo-main img { width: 100%; border-radius: 8px; background: #a6ff00; }
-        .photo-album ul { display: flex; list-style: none; padding: 10px 0; gap: 10px; }
-        .photo-album img { width: 50px; border: 1px solid #ddd; border-radius: 4px; }
+        /* General layout using Flexbox */
+        body {
+            background-color: #2ecc71; /* Green background from screenshot */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-        .product__info { flex: 1; padding-left: 30px; }
-        .price { color: #ff4757; font-size: 32px; font-weight: bold; margin: 15px 0; }
-        .variant img { width: 30px; margin-right: 5px; border: 1px solid #ccc; cursor: pointer; }
-        .description h3 { font-size: 14px; color: #888; margin-bottom: 5px; }
-        .description ul { padding-left: 20px; font-size: 13px; line-height: 1.6; }
-        .add-to-cart { background: #ff4757; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
+        /* Main Layout using flexbox and white container */
+        .main-layout {
+            background: white;
+            display: flex;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 800px;
+            width: 90%;
+        }
 
-        /* Testimonial Section Styles */
-        .testimonial-container { background-color: #f5f5f5; padding: 40px; margin-top: 50px; }
-        .testimonial { background-color: #ffffff; border: 1px solid #d3d3d3; padding: 20px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
-        .text { margin: 0; flex: 1; }
-        .author { text-align: right; font-style: italic; white-space: nowrap; padding-left: 20px; }
+        /* Product Photo Container */
+        .product__photo {
+            flex: 1;
+        }
+
+        .photo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .photo-main img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        /* Photo Album list */
+        .photo-album ul {
+            display: flex;
+            list-style: none;
+            padding: 20px 0 0 0;
+            gap: 10px;
+        }
+
+        .photo-album img {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        /* Product Details Section */
+        .product__info {
+            flex: 1;
+            padding-left: 40px;
+        }
+
+        h1 { margin: 0; font-size: 24px; color: #333; }
+        .code { color: #aaa; font-size: 12px; margin-bottom: 20px; }
+
+        /* Price highlighting */
+        .price {
+            color: #ff4757;
+            font-size: 36px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        /* Varieties section */
+        .variant p { font-size: 12px; color: #888; margin-bottom: 10px; }
+        .variant img {
+            width: 30px;
+            margin-right: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Benefits section */
+        .description h3 {
+            font-size: 14px;
+            color: #888;
+            margin-top: 25px;
+            letter-spacing: 1px;
+        }
+
+        .description ul {
+            padding-left: 20px;
+            font-size: 13px;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        /* Add to Cart Button */
+        .add-to-cart-btn {
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
 
     <div class="main-layout">
-        <div class="product-card">
-            <div class="product__photo">
-                <div class="photo-container">
-                    <div class="photo-main">
-                        <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400" alt="Main Apple">
-                    </div>
-                    <div class="photo-album">
-                        <ul>
-                            <li><img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6bcd6?w=100"></li>
-                            <li><img src="https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?w=100"></li>
-                            <li><img src="https://images.unsplash.com/photo-1610397648930-477b8c7f0943?w=100"></li>
-                        </ul>
-                    </div>
+        <div class="product__photo">
+            <div class="photo-container">
+                <div class="photo-main">
+                    <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400" alt="Green Apple">
                 </div>
-            </div>
-            <div class="product__info">
-                <h1>Delicious Apples</h1>
-                <p style="color:#aaa; font-size:12px;">CODE 45939</p>
-                <div class="price">R$ 7.93</div>
-                <div class="variant">
-                    <p style="font-size:12px; color:#888;">SELECT A COLOR</p>
-                    <img src="https://placehold.co/30x30/green/green">
-                    <img src="https://placehold.co/30x30/yellow/yellow">
-                    <img src="https://placehold.co/30x30/orange/orange">
-                    <img src="https://placehold.co/30x30/red/red">
-                </div>
-                <div class="description">
-                    <h3>BENEFITS</h3>
+                <div class="photo-album">
                     <ul>
-                        <li>Apples are nutritious</li>
-                        <li>Apples may be good for weight loss</li>
-                        <li>Apples may be good for bone health</li>
-                        <li>They're linked to a lower risk of diabetes</li>
+                        <li><img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6bcd6?w=100" alt="view 1"></li>
+                        <li><img src="https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?w=100" alt="view 2"></li>
+                        <li><img src="https://images.unsplash.com/photo-1610397648930-477b8c7f0943?w=100" alt="view 3"></li>
+                        <li><img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=100" alt="view 4"></li>
                     </ul>
                 </div>
-                <button class="add-to-cart">ADD TO CART</button>
             </div>
         </div>
-    </div>
 
-    <div class="testimonial-container">
-        <h1 style="margin-top:0;">Testimonials</h1>
-        <div class="testimonial">
-            <p class="text">This product is amazing! I highly recommend it to anyone in need of a solution like this.</p>
-            <p class="author">- John Doe</p>
-        </div>
-        <div class="testimonial">
-            <p class="text">I have been using this for a few weeks now and it has completely transformed my workflow.</p>
-            <p class="author">- Jane Smith</p>
-        </div>
-    </div>
+        <div class="product__info">
+            <h1>Delicious Apples</h1>
+            <p class="code">CODE 45939</p>
 
-    <div style="margin-top: 50px; background: white; padding: 20px;">
-        <h2>CSS Box Model Demo</h2>
-        <div style="width: 300px; background-color: lightblue; border: 15px solid blue; padding: 50px; margin: 20px;">
-            This is a demo of box model try to replicate this box model in Html and Css and try to pass all the test cases.
+            <div class="price">R$ 7.93</div>
+
+            <div class="variant">
+                <p>SELECT A COLOR</p>
+                <img src="https://placehold.co/30x30/92b512/92b512" alt="Green">
+                <img src="https://placehold.co/30x30/f1c40f/f1c40f" alt="Yellow">
+                <img src="https://placehold.co/30x30/e67e22/e67e22" alt="Orange">
+                <img src="https://placehold.co/30x30/c0392b/c0392b" alt="Red">
+            </div>
+
+            <div class="description">
+                <h3>BENEFITS</h3>
+                <ul>
+                    <li>Apples are nutritious</li>
+                    <li>Apples may be good for weight loss</li>
+                    <li>Apples may be good for bone health</li>
+                    <li>They're linked to a lower risk of diabetes</li>
+                </ul>
+            </div>
+
+            <button class="add-to-cart-btn">ADD TO CART</button>
         </div>
     </div>
 
